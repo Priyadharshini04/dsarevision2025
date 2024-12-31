@@ -1,5 +1,13 @@
 package graph.undirected;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
+/*
+    https://www.geeksforgeeks.org/problems/number-of-provinces/1
+    TC: O(V+2E)
+    sC: O(V) for visited array+O(V+2E) for dfs traversal
+ */
 public class NumberOfProvinces {
     public static int findCircleNum(int[][] isConnected) {
         int countProvince = 0;
@@ -7,10 +15,32 @@ public class NumberOfProvinces {
         for (int i = 0; i < isConnected.length; i++) {
             if (!visited[i]) {
                 countProvince++;
-                dfs(isConnected, i, visited);
+                bfs(isConnected, i, visited);
             }
         }
         return countProvince;
+    }
+
+    private static void bfs(int[][] isConnected, int v, boolean[] visited) {
+        if (!visited[v]) {
+            Queue<Integer> queue=new LinkedList<>();
+            queue.offer(v);
+            while(!queue.isEmpty())
+            {
+                int node= queue.poll();
+                if(!visited[node])
+                {
+                    visited[node]=true;
+                    for(int i=0;i<isConnected.length;i++)
+                    {
+                        if(!visited[i] && isConnected[node][i]==1)
+                        {
+                            queue.offer(i);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private static void dfs(int[][] isConnected, int v, boolean[] visited) {
