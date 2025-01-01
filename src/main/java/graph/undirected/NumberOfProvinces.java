@@ -5,8 +5,8 @@ import java.util.Queue;
 
 /*
     https://www.geeksforgeeks.org/problems/number-of-provinces/1
-    TC: O(V+2E)
-    sC: O(V) for visited array+O(V+2E) for dfs traversal
+    TC: O(V) + O(V+2E)
+    SC: O(V) for visited array+O(V) for dfs traversal
  */
 public class NumberOfProvinces {
     public static int findCircleNum(int[][] isConnected) {
