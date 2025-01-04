@@ -1,4 +1,4 @@
-package graph.undirected;
+package com.util;
 
 public class Pair {
     private int row;
