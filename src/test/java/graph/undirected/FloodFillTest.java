@@ -2,7 +2,7 @@ package graph.undirected;
 
 import org.junit.jupiter.api.Test;
 
-import static com.util.AssertArray.assertArrays;
+import static com.util.AssertArray.assertIntArrays;
 
 public class FloodFillTest {
     @Test
@@ -12,7 +12,7 @@ public class FloodFillTest {
         int sr = 1, sc = 1, color = 2;
         int[][] expected = new int[][]{{2,2,2},{2,2,0},{2,0,1}};
         int[][] result = FloodFill.floodFill(image,sr,sc,color);
-        assertArrays(expected,result);
+        assertIntArrays(expected,result);
     }
 
     @Test
@@ -22,7 +22,7 @@ public class FloodFillTest {
         int sr = 1, sc = 1, color = 0;
         int[][] expected = new int[][]{{0,0,0},{0,0,0}};
         int[][] result = FloodFill.floodFill(image,sr,sc,color);
-        assertArrays(expected,result);
+        assertIntArrays(expected,result);
     }
 
     @Test
@@ -32,6 +32,6 @@ public class FloodFillTest {
         int sr = 1, sc = 1, color = 2;
         int[][] expected = new int[][]{{0,0,0},{0,2,0}};
         int[][] result = FloodFill.floodFill(image,sr,sc,color);
-        assertArrays(expected,result);
+        assertIntArrays(expected,result);
     }
 }
