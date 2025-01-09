@@ -1,5 +1,8 @@
 package graph.undirected;
 
+import com.util.AdjacencyListRepresentation;
+import com.util.GraphType;
+
 import java.util.*;
 
 //https://www.geeksforgeeks.org/problems/connected-components-in-an-undirected-graph/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
@@ -10,7 +13,7 @@ import java.util.*;
 public class ConnectedComponents {
     public static ArrayList<ArrayList<Integer>> findConnected(int[][] edges, int v) {
         ArrayList<ArrayList<Integer>> result = new ArrayList<>();
-        List<List<Integer>> adj = AdjacencyListRepresentation.getAdjacent(edges, v);
+        List<List<Integer>> adj = AdjacencyListRepresentation.getAdjacent(edges, v, GraphType.UnDirected);
         boolean[] visited = new boolean[v];
         for (int i = 0; i < adj.size(); i++) {
             if (!visited[i]) {
